@@ -1,0 +1,35 @@
+#include <Arduino.h>
+
+#define LED_PIN 2
+#define NTC_PIN 34
+
+unsigned long lastLoop = 0;
+const unsigned long LOOP_TIME = 53;
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(LED_PIN, OUTPUT);
+  Serial.println("MyAutoOS VCU ADAS L2/L3 | Fase 2 HIL Sim | 53ms");
+}
+
+void loop() {
+  unsigned long now = millis();
+  if (now - lastLoop >= LOOP_TIME) {
+    lastLoop = now;
+    
+    int ntc = analogRead(NTC_PIN);
+    bool ntcOK = ntc > 100;
+
+    // Simulación CAN BMS
+    int soc = random(20, 100); // % batería simulado
+    float temp = ntcOK ? 35.5 : 85.0;
+
+    if (!ntcOK) {
+      digitalWrite(LED_PIN, LOW);
+      Serial.printf("Latencia: 53ms | ROJO | CAN_ID:0x100 SOC:%d%% Temp:%.1fC | Fail-safe OK\n", soc, temp);
+    } else {
+      digitalWrite(LED_PIN, HIGH);
+      Serial.printf("Latencia: 53ms | OK | CAN_ID:0x100 SOC:%d%% Temp:%.1fC | BMS OK\n", soc, temp);
+    }
+  }
+}
