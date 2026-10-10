@@ -1,0 +1,7 @@
+### Fase 4 - ADAS L23 + Simulación de Frenado - COMPLETADA
+- CAN ID 0x100 VCU @ 53ms OK
+- CAN ID 0x200 Frenado Simulado @ 100ms
+- Lógica ADAS: Alerta SOC <20%
+- Failsafe: SAFE MODE si latencia >150ms
+- Código: `src/fase4_adas_frenado.ino`
+- Evidencia: Serial "FRENO - ADAS OK" <53ms
