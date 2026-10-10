@@ -1,0 +1,32 @@
+# VCU ADAS L23 - 53ms Latency - BYD Lerma Ready
+
+**Autor:** Norberto - Cherán, Michoacán
+**Objetivo:** Validación VCU para ADAS L2/3 - Latencia garantizada 53ms @ 500Kbps
+
+## 🚀 Fases Completadas
+
+### Fase 1: Arquitectura
+- ESP32 DevKit v1 como VCU Sim
+- CAN 500Kbps (BYD Standard)
+
+### Fase 2: HIL Simulation Validada ✅
+- Evidencia: `src/evidencia-fase2.png.jpg`
+- Latencia medida: 53ms
+- Payload: CAN ID 0x100 SOC 100%
+
+### Fase 3: MCP2515 Ready ✅
+- Evidencia: `docs/evidencia-fase3-wokwi.png`
+- Wiring: SCK=18, MISO=19, MOSI=23, CS=5, INT=21
+- Código: `src/can_real_mcp2515.ino`
+- Estado: Listo para hardware físico
+
+## 🔧 Hardware
+- ESP32 240MHz + MCP2515 8MHz SPI
+- Próximo: Módulo físico MCP2515 (logística Cherán)
+
+## 📊 Logros
+- 53ms latencia garantizada
+- Arquitectura migratable a CAN real
+- Listo para integración BYD Lerma
+
+## 📅 Fecha: 13 Oct 2026 - Entrevista BYD Lerma
