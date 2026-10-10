@@ -5,3 +5,7 @@
 - Failsafe: SAFE MODE si latencia >150ms
 - Código: `src/fase4_adas_frenado.ino`
 - Evidencia: Serial "FRENO - ADAS OK" <53ms
+
+
+"Tengo VCU simulado con ADAS L23, manejo dos IDs de CAN
+(0x100 tracción y 0x200 freno), con validación de latencia menor a 53ms y lógica de failsafe si SOC menor a 20%."
