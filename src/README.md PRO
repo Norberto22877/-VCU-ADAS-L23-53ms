@@ -1,0 +1,37 @@
+# BYD Lerma - VCU ADAS L23 - Ciclo Crítico 53ms
+**Autor:** Norberto - Aspirante ADAS / VCU
+**Objetivo entrevista:** Demostrar capacidad V-Model y bus CAN
+
+### 1. Objetivo Claro
+Simulación de VCU (Vehicle Control Unit) para plataforma BYD con ciclo crítico de **53ms**. 
+Este ciclo se eligió para evitar colisiones y pérdida de mensajes en bus CAN a 500Kbps, garantizando refresco de ADAS L2+ por debajo de 100ms (requerimiento de seguridad).
+
+Tareas principales:
+- Lectura SOC (State of Charge)
+- Gestión de par motor (CAN ID 0x100)
+- Simulación de frenado regenerativo y ADAS (CAN ID 0x200)
+
+### 2. Parámetros Técnicos
+- **Frecuencia de muestreo:** 53ms (Tarea crítica VCU), 100ms (Frenado)
+- **Bus CAN:** 500Kbps, Standard Frame
+- **Señales:**
+    - `0x100` - VCU_Traction: SOC, Torque Request
+    - `0x200` - ADAS_Brake: Brake Request, AEB Status
+- **Failsafe:** SAFE MODE si latencia >150ms o SOC <20%
+- **Firmware:** v0.4 - Fase 4 ADAS
+- **Herramientas:** Arduino IDE 2.x, Wokwi Simulator, MCP2515, Git
+
+### 3. Estructura Profesional (Estándar Automotriz)
+
+```text
+/
+├── docs/
+│   ├── arquitectura_vcu_53ms.png
+│   └── tabla_senales_CAN.xlsx
+├── src/
+│   ├── fase4_adas_frenado.ino  <- Código principal 53ms
+│   └── fase3_mcp2515.ino
+├── config/
+│   └── task_scheduling_53ms.txt
+└── tests/
+    └── log_serial_53ms_OK.txt
