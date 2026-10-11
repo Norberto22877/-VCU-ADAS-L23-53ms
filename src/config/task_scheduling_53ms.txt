@@ -1,0 +1,13 @@
+# BYD Lerma - VCU Task Scheduling - 53ms Critico
+# Autor: Norberto
+
+TAREA | PERIODO | PRIORIDAD | ID CAN | DESCRIPCION
+T1_VCU_Traction | 53ms | ALTA (10) | 0x100 | Lectura SOC + Torque. Critica para ADAS L23. Si falla >150ms -> SAFE MODE
+T2_ADAS_Brake | 100ms | MEDIA (5) | 0x200 | Frenado regenerativo + AEB Status
+T3_Diagnostics | 1000ms | BAJA (1) | 0x7DF | Diagnostico UDS
+
+# Justificacion 53ms:
+# Bus CAN 500Kbps = max ~4000 mensajes/s. Con 53ms garantizamos <100ms para ADAS L2+
+# Evita colision y cumple requerimiento de seguridad ISO 26262.
+
+Failsafe: Si SOC <20% o latencia CAN >150ms => Safe Mode = Torque 0, Freno 50%
