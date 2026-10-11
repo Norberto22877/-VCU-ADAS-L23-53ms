@@ -1,0 +1,8 @@
+MCP2515 -> Arduino UNO
+VCC -> 5V
+GND -> GND
+CS -> D10
+SO -> D12 (MISO)
+SI -> D11 (MOSI)
+SCK -> D13
+INT -> D2
