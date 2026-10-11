@@ -1,0 +1,12 @@
+--- LOG EVIDENCIA FASE 4 - 53ms OK ---
+BYD VCU 53ms - MCP2515 OK - Fase 5 Lista
+ID 0x100 SOC:85% - 53ms OK - Fase 5
+ID 0x100 SOC:84% - 53ms OK - Fase 5
+ID 0x200 FRENO:30% - ADAS OK
+ID 0x100 SOC:83% - 53ms OK - Fase 5
+ALERTA ADAS - SOC <20% -> SAFE MODE
+Falla Bus CAN - Latencia >150ms -> SAFE MODE
+
+Resultado: Tarea 53ms estable, jitter <2ms, sin perdida mensajes.
+Herramienta: Arduino IDE Serial Monitor 115200bps
+Fecha: 2026-10-11
