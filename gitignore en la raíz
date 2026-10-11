@@ -1,0 +1,15 @@
+# Binarios y temporales
+*.hex
+*.bin
+*.elf
+*.exe
+
+# Configuracion local
+.vscode/
+.idea/
+build/
+
+# Datos confidenciales - NUNCA SUBIR
+calibracion_real/
+passwords.txt
+*.dbc
